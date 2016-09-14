@@ -1,6 +1,6 @@
 [Core]
 name = WebhookSend
-module = webhooksend
+module = webhook-send
 
 [Documentation]
 description = An Err plugin to send messages to chats using WebHooks
