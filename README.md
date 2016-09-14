@@ -19,12 +19,14 @@ Install the plugin:
 
 Plugin exposes `/send_message` endpoint, which expects POST request with
 `Content-Type: application/x-www-form-urlencoded` header set, and `payload` form
-field, which contains following JSON: `{'to': 'username', 'text': 'message to send' }`
+field, which contains following JSON: `{'to': 'username', 'text': 'message to send' }`.
+
 `to` should contain a text representation of message recipient (this value will
 be used with [build_identifier()](http://errbot.io/en/latest/errbot.botplugin.html#errbot.botplugin.BotPlugin.build_identifier) call).
 Plugin does not check if a user or channel exist upon sending a message, it's up
 to you to supply a valid channel/username.
 For information about valid identifiers for various backends see [Identifiers](#identifiers) section below.
+
 `text` should contain the message you'd like to send. Markdown formatting is
 supported.
 
