@@ -38,6 +38,13 @@ curl -m 5 --data-urlencode payload='{"to": "vk",  "text": "Hi there\!"}' http://
 
 Above command will send `Hi there!` to user `vk`.
 
+### Commands
+
+Currently, plugin adds following commands:
+
+- `mute [TIMEOUT]` - mute messages delivery sent to a webhook for `TIMEOUT`
+    number of minutes (15 minutes, if `TIMEOUT` is omitted).
+
 ## Identifiers
 
 List of valid identifiers for various backends:
