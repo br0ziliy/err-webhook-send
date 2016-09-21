@@ -48,7 +48,7 @@ class WebhookSend(BotPlugin):
 
     def mute_callback(self):
         muted = self['muted']
-        for u in muted:
+        for u in list(muted):
             muted[u] -= 1
             if muted[u] <= 0:
                 del muted[u]
