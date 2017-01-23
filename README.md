@@ -42,8 +42,10 @@ Above command will send `Hi there!` to user `vk`.
 
 Currently, plugin adds following commands:
 
-- `mute [TIMEOUT]` - mute messages delivery sent to a webhook for `TIMEOUT`
-    number of minutes (15 minutes, if `TIMEOUT` is omitted).
+- `mute [TIMEOUT] [RECEIPIENT]` - mute messages delivery sent to a `RECIPIENT` via a webhook for `TIMEOUT`
+    number of minutes (15 minutes, if `TIMEOUT` is omitted). `RECIPIENT`
+    defaults to a current user, and can represent and valid IRC identifier (see
+    [#identifiers](Identifiers) below).
 
 ## Identifiers
 
