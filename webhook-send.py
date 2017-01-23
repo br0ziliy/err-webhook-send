@@ -30,21 +30,23 @@ class WebhookSend(BotPlugin):
             self.send(to, text)
             return None
         else:
-            self.log.info("User {} muted, no action".format(request['to']))
+            self.log.info("Recipient {} muted, no action".format(request['to']))
             return None
 
-    @re_botcmd(pattern=r"((fuck|back)off|mute)\s*([0-9]+)?")
+    @re_botcmd(pattern=r"((fuck|back)off|mute)\s*([0-9]+)\ +(#?[a-zA-z]+)?")
     def mute_messages(self, msg, match):
         timeout = 15
+        recipient = msg.frm.nick
         if match.group(3):
             timeout = match.group(3)
+        if match.group(4):
+            recipient = match.group(4)
 
-        user = msg.frm.nick
-        self.log.info("Muting messages to {} for {} minutes".format(user, timeout))
+        self.log.info("Muting messages to {} for {} minutes".format(recipient, timeout))
         muted = self['muted']
-        muted[user] = int(timeout)
+        muted[recipient] = int(timeout)
         self['muted'] = muted
-        yield("I will not send messages to {} for {} minutes".format(user, timeout))
+        yield("I will not send messages to {} for {} minutes".format(recipient, timeout))
 
     def mute_callback(self):
         muted = self['muted']
