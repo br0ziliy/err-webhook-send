@@ -33,7 +33,7 @@ class WebhookSend(BotPlugin):
             self.log.info("Recipient {} muted, no action".format(request['to']))
             return None
 
-    @re_botcmd(pattern=r"((fuck|back)off|mute)\s*([0-9]+)\ +(#?[a-zA-z]+)?")
+    @re_botcmd(pattern=r"((fuck|back)off|mute)\s*([0-9]+)\ +(#?[a-zA-z-]+)?")
     def mute_messages(self, msg, match):
         timeout = 15
         recipient = msg.frm.nick
