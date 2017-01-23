@@ -53,5 +53,8 @@ class WebhookSend(BotPlugin):
         for u in list(muted):
             muted[u] -= 1
             if muted[u] <= 0:
+                to = self.build_identifier(u)
+                text = "Silence period ended, unmuting myself."
+                self.send(to, text)
                 del muted[u]
         self['muted'] = muted
